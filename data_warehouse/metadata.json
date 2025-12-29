@@ -1,0 +1,120 @@
+{
+  "metadata_version": "1.0.0",
+  "last_updated": "2024-01-15T00:00:00Z",
+  "statistics": {
+    "sft_training_data": {
+      "total_samples": 7,
+      "by_type": {
+        "conversation": 2,
+        "instruction": 3,
+        "qa": 3
+      },
+      "by_language": {
+        "zh": 5,
+        "en": 2
+      },
+      "by_difficulty": {
+        "easy": 4,
+        "medium": 3,
+        "hard": 0
+      }
+    },
+    "evaluation_data": {
+      "total_samples": 7,
+      "by_type": {
+        "benchmark": 3,
+        "custom_test": 2,
+        "model_comparison": 2
+      },
+      "by_language": {
+        "zh": 4,
+        "en": 3
+      },
+      "by_difficulty": {
+        "easy": 3,
+        "medium": 4,
+        "hard": 0
+      }
+    }
+  },
+  "data_sources": [
+    "教育对话数据集",
+    "coding_qa_dataset",
+    "翻译数据集",
+    "文本摘要数据集",
+    "技术问答数据集",
+    "机器学习问答",
+    "MMLU",
+    "中文理解测试",
+    "GSM8K"
+  ],
+  "tags": [
+    "教育",
+    "机器学习",
+    "基础概念",
+    "coding",
+    "algorithms",
+    "python",
+    "翻译",
+    "英译中",
+    "摘要",
+    "文本理解",
+    "硬件",
+    "GPU",
+    "深度学习",
+    "过拟合",
+    "正则化",
+    "benchmark",
+    "multiple_choice",
+    "ml_basics",
+    "reading_comprehension",
+    "chinese",
+    "math",
+    "word_problems",
+    "custom",
+    "dialogue",
+    "context_understanding",
+    "comparison",
+    "summarization",
+    "sentiment",
+    "classification"
+  ],
+  "coverage": {
+    "domains_covered": [
+      "机器学习",
+      "编程",
+      "翻译",
+      "自然语言处理",
+      "深度学习",
+      "阅读理解",
+      "数学",
+      "对话系统",
+      "文本摘要",
+      "情感分析"
+    ],
+    "languages_covered": ["zh", "en"],
+    "tasks_covered": [
+      "对话生成",
+      "代码生成",
+      "文本翻译",
+      "文本摘要",
+      "问答",
+      "多选题",
+      "阅读理解",
+      "数学问题",
+      "情感分析"
+    ]
+  },
+  "quality_metrics": {
+    "validation_status": "passed",
+    "schema_compliance": 100,
+    "metadata_completeness": 100
+  },
+  "change_log": [
+    {
+      "date": "2024-01-15T00:00:00Z",
+      "version": "1.0.0",
+      "changes": "Initial data warehouse setup with sample data"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+[
+  {
+    "id": "custom_001",
+    "eval_type": "custom_test",
+    "task": "代码生成测试 - 排序算法",
+    "prompt": "请用Python实现快速排序算法",
+    "expected_output": "def quick_sort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quick_sort(left) + middle + quick_sort(right)",
+    "evaluation_criteria": {
+      "metrics": ["human_eval", "semantic_similarity"],
+      "threshold": 0.8
+    },
+    "test_cases": [
+      {
+        "input": "[3, 1, 4, 1, 5, 9, 2, 6]",
+        "expected": "[1, 1, 2, 3, 4, 5, 6, 9]",
+        "weight": 1.0
+      },
+      {
+        "input": "[5, 4, 3, 2, 1]",
+        "expected": "[1, 2, 3, 4, 5]",
+        "weight": 1.0
+      },
+      {
+        "input": "[]",
+        "expected": "[]",
+        "weight": 0.5
+      }
+    ],
+    "metadata": {
+      "language": "zh",
+      "domain": "编程",
+      "difficulty": "medium",
+      "created_at": "2024-01-18T10:00:00Z",
+      "version": "1.0",
+      "tags": ["custom", "coding", "algorithms"]
+    }
+  },
+  {
+    "id": "custom_002",
+    "eval_type": "custom_test",
+    "task": "多轮对话能力测试",
+    "prompt": "User: 你能帮我规划一个三天的北京旅游行程吗？\nAssistant: 当然可以！我可以为您规划一个三天的北京旅游行程。\n\nUser: 我对历史文化特别感兴趣",
+    "expected_output": "基于您对历史文化的兴趣，我为您推荐以下行程：\n第一天：天安门广场、故宫博物院、景山公园\n第二天：长城（八达岭或慕田峪）、明十三陵\n第三天：天坛公园、雍和宫、国子监\n这些景点都富有深厚的历史文化底蕴。",
+    "evaluation_criteria": {
+      "metrics": ["semantic_similarity", "human_eval"],
+      "threshold": 0.75
+    },
+    "metadata": {
+      "language": "zh",
+      "domain": "对话系统",
+      "difficulty": "medium",
+      "created_at": "2024-01-19T14:00:00Z",
+      "version": "1.0",
+      "tags": ["custom", "dialogue", "context_understanding"]
+    }
+  }
+]

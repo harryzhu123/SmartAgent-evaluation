@@ -1,0 +1,62 @@
+[
+  {
+    "id": "bench_001",
+    "eval_type": "benchmark",
+    "task": "MMLU - Machine Learning",
+    "prompt": "Which of the following is NOT a type of machine learning?\nA) Supervised Learning\nB) Unsupervised Learning\nC) Reinforcement Learning\nD) Deterministic Learning",
+    "expected_output": "D",
+    "evaluation_criteria": {
+      "metrics": ["exact_match"],
+      "threshold": 1.0
+    },
+    "metadata": {
+      "benchmark_name": "MMLU",
+      "language": "en",
+      "domain": "machine_learning",
+      "difficulty": "easy",
+      "created_at": "2024-01-15T10:00:00Z",
+      "version": "1.0",
+      "tags": ["benchmark", "multiple_choice", "ml_basics"]
+    }
+  },
+  {
+    "id": "bench_002",
+    "eval_type": "benchmark",
+    "task": "中文理解 - 阅读理解",
+    "prompt": "文章：人工智能（AI）正在改变我们的生活方式。从智能手机到自动驾驶汽车，AI技术无处不在。\n\n问题：根据文章，AI技术的应用范围是什么？",
+    "expected_output": "AI技术的应用范围很广，从智能手机到自动驾驶汽车都有应用。",
+    "evaluation_criteria": {
+      "metrics": ["semantic_similarity", "rouge"],
+      "threshold": 0.7
+    },
+    "metadata": {
+      "benchmark_name": "中文理解测试",
+      "language": "zh",
+      "domain": "阅读理解",
+      "difficulty": "easy",
+      "created_at": "2024-01-16T11:00:00Z",
+      "version": "1.0",
+      "tags": ["benchmark", "reading_comprehension", "chinese"]
+    }
+  },
+  {
+    "id": "bench_003",
+    "eval_type": "benchmark",
+    "task": "GSM8K - Math Word Problem",
+    "prompt": "A restaurant serves 50 customers in the morning and 80 customers in the evening. If each customer spends an average of $15, how much money does the restaurant make in one day?",
+    "expected_output": "1950",
+    "evaluation_criteria": {
+      "metrics": ["exact_match"],
+      "threshold": 1.0
+    },
+    "metadata": {
+      "benchmark_name": "GSM8K",
+      "language": "en",
+      "domain": "mathematics",
+      "difficulty": "medium",
+      "created_at": "2024-01-17T09:00:00Z",
+      "version": "1.0",
+      "tags": ["benchmark", "math", "word_problems"]
+    }
+  }
+]
