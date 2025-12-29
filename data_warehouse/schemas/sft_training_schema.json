@@ -1,0 +1,118 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SFT Training Data Schema",
+  "description": "Schema for Supervised Fine-Tuning (SFT) training data for large language models",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the training sample"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["conversation", "instruction", "qa"],
+      "description": "Type of training data: conversation (multi-turn dialogue), instruction (single instruction-response), or qa (question-answer)"
+    },
+    "conversation": {
+      "type": "array",
+      "description": "Multi-turn conversation data (for type=conversation)",
+      "items": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "type": "string",
+            "enum": ["system", "user", "assistant"],
+            "description": "Role of the speaker"
+          },
+          "content": {
+            "type": "string",
+            "description": "Content of the message"
+          }
+        },
+        "required": ["role", "content"]
+      }
+    },
+    "instruction": {
+      "type": "string",
+      "description": "Instruction for the model (for type=instruction)"
+    },
+    "input": {
+      "type": "string",
+      "description": "Optional input context for the instruction"
+    },
+    "output": {
+      "type": "string",
+      "description": "Expected output/response (for type=instruction or type=qa)"
+    },
+    "question": {
+      "type": "string",
+      "description": "Question text (for type=qa)"
+    },
+    "answer": {
+      "type": "string",
+      "description": "Answer text (for type=qa)"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata for the training sample",
+      "properties": {
+        "source": {
+          "type": "string",
+          "description": "Source of the data"
+        },
+        "language": {
+          "type": "string",
+          "description": "Language of the content (e.g., zh, en)"
+        },
+        "domain": {
+          "type": "string",
+          "description": "Domain or topic area"
+        },
+        "difficulty": {
+          "type": "string",
+          "enum": ["easy", "medium", "hard"],
+          "description": "Difficulty level of the task"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when the data was created"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Tags for categorization"
+        }
+      }
+    }
+  },
+  "required": ["id", "type"],
+  "oneOf": [
+    {
+      "properties": {
+        "type": {
+          "const": "conversation"
+        }
+      },
+      "required": ["conversation"]
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "instruction"
+        }
+      },
+      "required": ["instruction", "output"]
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "qa"
+        }
+      },
+      "required": ["question", "answer"]
+    }
+  ]
+}
