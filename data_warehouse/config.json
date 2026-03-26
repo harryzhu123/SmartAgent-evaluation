@@ -1,0 +1,79 @@
+{
+  "warehouse_info": {
+    "name": "SmartAgent Data Warehouse",
+    "version": "1.0.0",
+    "description": "数据仓库用于存储SFT训练数据和评测数据 / Data warehouse for SFT training and evaluation data",
+    "created_at": "2024-01-15T00:00:00Z",
+    "last_updated": "2024-01-15T00:00:00Z"
+  },
+  "data_structure": {
+    "sft_training_data": {
+      "path": "sft_training_data",
+      "types": ["conversation", "instruction", "qa"],
+      "supported_languages": ["zh", "en"],
+      "supported_formats": ["json"]
+    },
+    "evaluation_data": {
+      "path": "evaluation_data",
+      "types": ["benchmark", "custom_test", "model_comparison"],
+      "supported_languages": ["zh", "en"],
+      "supported_formats": ["json"]
+    }
+  },
+  "schemas": {
+    "sft_training": {
+      "schema_file": "schemas/sft_training_schema.json",
+      "version": "1.0.0"
+    },
+    "evaluation": {
+      "schema_file": "schemas/evaluation_schema.json",
+      "version": "1.0.0"
+    }
+  },
+  "validation": {
+    "strict_mode": true,
+    "auto_validate": true,
+    "required_metadata_fields": ["language", "domain"]
+  },
+  "evaluation_metrics": [
+    "accuracy",
+    "bleu",
+    "rouge",
+    "f1",
+    "perplexity",
+    "human_eval",
+    "exact_match",
+    "semantic_similarity"
+  ],
+  "supported_domains": [
+    "机器学习",
+    "深度学习",
+    "自然语言处理",
+    "计算机视觉",
+    "编程",
+    "数学",
+    "翻译",
+    "问答",
+    "对话系统",
+    "machine_learning",
+    "deep_learning",
+    "natural_language_processing",
+    "computer_vision",
+    "programming",
+    "mathematics",
+    "translation",
+    "qa",
+    "dialogue"
+  ],
+  "difficulty_levels": ["easy", "medium", "hard"],
+  "backup": {
+    "enabled": false,
+    "interval": "daily",
+    "retention_days": 30
+  },
+  "notes": [
+    "This warehouse supports both Chinese and English data",
+    "All data should follow the schema definitions in the schemas/ directory",
+    "Use the utilities in utils/ for data management and validation"
+  ]
+}

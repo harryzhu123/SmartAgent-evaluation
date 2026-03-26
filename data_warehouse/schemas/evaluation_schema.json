@@ -1,0 +1,108 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Evaluation Data Schema",
+  "description": "Schema for evaluation data used to test and benchmark large language models",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the evaluation sample"
+    },
+    "eval_type": {
+      "type": "string",
+      "enum": ["benchmark", "custom_test", "model_comparison"],
+      "description": "Type of evaluation: benchmark (standard benchmark), custom_test (custom test cases), or model_comparison (A/B testing)"
+    },
+    "task": {
+      "type": "string",
+      "description": "Task name or description"
+    },
+    "prompt": {
+      "type": "string",
+      "description": "Input prompt for the evaluation"
+    },
+    "expected_output": {
+      "type": "string",
+      "description": "Expected or reference output"
+    },
+    "evaluation_criteria": {
+      "type": "object",
+      "description": "Criteria for evaluating the output",
+      "properties": {
+        "metrics": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["accuracy", "bleu", "rouge", "f1", "perplexity", "human_eval", "exact_match", "semantic_similarity"]
+          },
+          "description": "Metrics to use for evaluation"
+        },
+        "threshold": {
+          "type": "number",
+          "description": "Minimum threshold for passing"
+        }
+      }
+    },
+    "test_cases": {
+      "type": "array",
+      "description": "Multiple test cases for the same task",
+      "items": {
+        "type": "object",
+        "properties": {
+          "input": {
+            "type": "string",
+            "description": "Test input"
+          },
+          "expected": {
+            "type": "string",
+            "description": "Expected output"
+          },
+          "weight": {
+            "type": "number",
+            "description": "Weight of this test case in scoring"
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata for the evaluation sample",
+      "properties": {
+        "benchmark_name": {
+          "type": "string",
+          "description": "Name of the benchmark (if applicable)"
+        },
+        "language": {
+          "type": "string",
+          "description": "Language of the content (e.g., zh, en)"
+        },
+        "domain": {
+          "type": "string",
+          "description": "Domain or topic area"
+        },
+        "difficulty": {
+          "type": "string",
+          "enum": ["easy", "medium", "hard"],
+          "description": "Difficulty level of the evaluation"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when the data was created"
+        },
+        "version": {
+          "type": "string",
+          "description": "Version of the evaluation data"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Tags for categorization"
+        }
+      }
+    }
+  },
+  "required": ["id", "eval_type", "task", "prompt"]
+}

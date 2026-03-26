@@ -1,0 +1,47 @@
+[
+  {
+    "id": "inst_001",
+    "type": "instruction",
+    "instruction": "将以下英文翻译成中文",
+    "input": "Machine learning is a subset of artificial intelligence.",
+    "output": "机器学习是人工智能的一个子集。",
+    "metadata": {
+      "source": "翻译数据集",
+      "language": "zh",
+      "domain": "翻译",
+      "difficulty": "easy",
+      "created_at": "2024-01-15T09:00:00Z",
+      "tags": ["翻译", "英译中"]
+    }
+  },
+  {
+    "id": "inst_002",
+    "type": "instruction",
+    "instruction": "总结以下段落的主要内容",
+    "input": "深度学习是机器学习的一个分支，它使用多层神经网络来学习数据的表示。深度学习在图像识别、自然语言处理和语音识别等领域取得了巨大成功。卷积神经网络（CNN）特别适合处理图像数据，而循环神经网络（RNN）和Transformer模型在处理序列数据方面表现出色。",
+    "output": "深度学习使用多层神经网络学习数据表示，在计算机视觉和NLP等领域表现优异。CNN擅长图像处理，RNN和Transformer擅长序列数据处理。",
+    "metadata": {
+      "source": "文本摘要数据集",
+      "language": "zh",
+      "domain": "自然语言处理",
+      "difficulty": "medium",
+      "created_at": "2024-01-16T11:00:00Z",
+      "tags": ["摘要", "文本理解"]
+    }
+  },
+  {
+    "id": "inst_003",
+    "type": "instruction",
+    "instruction": "Write a Python function to calculate the factorial of a number",
+    "input": "",
+    "output": "```python\ndef factorial(n):\n    if n < 0:\n        raise ValueError(\"Factorial is not defined for negative numbers\")\n    if n == 0 or n == 1:\n        return 1\n    result = 1\n    for i in range(2, n + 1):\n        result *= i\n    return result\n```",
+    "metadata": {
+      "source": "coding_instruction_dataset",
+      "language": "en",
+      "domain": "programming",
+      "difficulty": "easy",
+      "created_at": "2024-01-17T08:00:00Z",
+      "tags": ["coding", "python", "algorithms"]
+    }
+  }
+]
